@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/bdd7e02b2f04445ab0d5d19350457484/artifacts
+end_time: 1745323746007
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: bdd7e02b2f04445ab0d5d19350457484
+run_name: receptive-pig-292
+run_uuid: bdd7e02b2f04445ab0d5d19350457484
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745323746000
+status: 4
+tags: []
+user_id: aprab

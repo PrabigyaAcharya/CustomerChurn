@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/21c303f253364d038d273d9347e8df4b/artifacts
+end_time: 1745326834162
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 21c303f253364d038d273d9347e8df4b
+run_name: gregarious-loon-95
+run_uuid: 21c303f253364d038d273d9347e8df4b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745326832537
+status: 4
+tags: []
+user_id: aprab

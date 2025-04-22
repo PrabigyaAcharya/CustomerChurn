@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/fb86e2d6f9ee4d49ad696570de9e046e/artifacts
+end_time: 1745326731181
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: fb86e2d6f9ee4d49ad696570de9e046e
+run_name: beautiful-pig-682
+run_uuid: fb86e2d6f9ee4d49ad696570de9e046e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745326709650
+status: 4
+tags: []
+user_id: aprab

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/b0a5fc33dcbf49b798a07e80589e69ad/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b0a5fc33dcbf49b798a07e80589e69ad
+run_name: defiant-slug-223
+run_uuid: b0a5fc33dcbf49b798a07e80589e69ad
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745323929123
+status: 1
+tags: []
+user_id: aprab

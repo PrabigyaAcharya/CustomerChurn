@@ -172,3 +172,13 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+churnenv/
+
+src/config.json
+
+test.py
+mlflow.db
+mlflow_ui.py
+
+.DS_Store

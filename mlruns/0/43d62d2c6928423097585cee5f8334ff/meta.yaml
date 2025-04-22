@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/43d62d2c6928423097585cee5f8334ff/artifacts
+end_time: 1745323617022
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 43d62d2c6928423097585cee5f8334ff
+run_name: inquisitive-gnu-305
+run_uuid: 43d62d2c6928423097585cee5f8334ff
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745323617017
+status: 4
+tags: []
+user_id: aprab

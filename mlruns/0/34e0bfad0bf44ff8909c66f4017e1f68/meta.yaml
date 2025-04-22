@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/34e0bfad0bf44ff8909c66f4017e1f68/artifacts
+end_time: 1745324182339
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 34e0bfad0bf44ff8909c66f4017e1f68
+run_name: gentle-gull-649
+run_uuid: 34e0bfad0bf44ff8909c66f4017e1f68
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745324180446
+status: 4
+tags: []
+user_id: aprab
