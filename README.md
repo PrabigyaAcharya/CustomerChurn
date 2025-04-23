@@ -55,6 +55,7 @@ airflow standalone
 
 ### 7. Deploy
 ```bash
+cd src/serve
 uvicorn src.serving.app:app --reload
 ```
 
