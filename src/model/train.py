@@ -14,6 +14,10 @@ import matplotlib.pyplot as plt
 import tempfile
 
 import json
+import time
+
+from mlflow.tracking import MlflowClient
+
 
 from src.pipeline import preprocess, feature_engineering
 
@@ -41,7 +45,10 @@ def train_model(X_train, y_train, X_test, y_test):
     optimizer = torch.optim.SGD(params = model.parameters(), lr = config["model"]["lr"])
 
 
-    with mlflow.start_run():
+    with mlflow.start_run() as run:
+
+        run_id = run.info.run_id
+
         mlflow.log_params({
             "lr" : config["model"]["lr"],
             "batch_size": config["model"]["batch_size"],
@@ -141,8 +148,82 @@ def train_model(X_train, y_train, X_test, y_test):
                 plt.close()
 
 
-    # Print out what's happening every 10 epochs
+            # Print out what's happening every 10 epochs
             if epoch % 10 == 0:
                 print(f"Epoch: {epoch} | Loss: {loss:.5f}, Accuracy: {acc:.2f}% | Test loss: {test_loss:.5f}, Test acc: {test_acc:.2f}%")
         
+        mlflow.pytorch.log_model(
+            model,
+            artifact_path="model",
+            input_example=input_example_np,
+            signature=signature
+        )
+
+        # Register model
+        model_uri = f"runs:/{run_id}/model"
+        result = mlflow.register_model(
+            model_uri=model_uri,
+            name="CustomerChurnClassifier"
+        )
+
+
+        client = MlflowClient()
+
+        model_name = "CustomerChurnClassifier"
+
+        for _ in range(10):
+            model_info = client.get_model_version(name=model_name, version=result.version)
+            if model_info.status == "READY":
+                break
+            time.sleep(1)
+
+        # Transition to staging
+        client.transition_model_version_stage(
+            name=model_name,
+            version=result.version,
+            stage="Staging",
+            archive_existing_versions=True
+        )
+
+        print(f"Model version {result.version} transitioned to 'Staging'.")
+
+        # # Wait until the model is registered (it can be async)
+        # model_name = "CustomerChurnClassifier"
+        # latest_version = None
+        # for _ in range(10):  # Retry logic in case registration isn't instant
+        #     versions = client.get_latest_versions(name=model_name)
+        #     if versions:
+        #         latest_version = versions[0].version
+        #         break
+        #     time.sleep(1)
+
+        # if latest_version:
+
+        #     # Transition to Staging
+        #     client.transition_model_version_stage(
+        #         name=model_name,
+        #         version=latest_version,
+        #         stage="Staging",
+        #         archive_existing_versions=True  
+        #     )
+        #     print(f"Model version {latest_version} transitioned to 'Staging'.")
+
+        #     # Transition to Production
+        #     # client.transition_model_version_stage(
+        #     #     name=model_name,
+        #     #     version=latest_version,
+        #     #     stage="Production",
+        #     #     archive_existing_versions=True
+        #     # )
+        #     # print(f"Model version {latest_version} transitioned to 'Production'.")
+
+        # else:
+        #     print("Failed to find registered model version.")
+
+
+        # Optional metadata
+        mlflow.set_tag("author", "Aprab")
+        mlflow.set_tag("project", "Customer Churn Prediction")
+
+
         mlflow.pytorch.log_model(model, "model", input_example=input_example_np, signature=signature)

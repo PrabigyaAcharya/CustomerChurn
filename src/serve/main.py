@@ -2,9 +2,15 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import mlflow.pyfunc
 import numpy as np
-import torch
+import sys
 
-model_uri = "file:./mlruns/0/1c0961b168f846c4830dd85b4eee6c6f/artifacts/model"
+sys.path.append("../..")
+
+# model_uri = "file:./mlruns/0/1c0961b168f846c4830dd85b4eee6c6f/artifacts/model"
+# model = mlflow.pyfunc.load_model(model_uri=model_uri)
+mlflow.set_tracking_uri("http://127.0.0.1:5000")
+
+model_uri = "models:/CustomerChurnClassifier/Staging"
 model = mlflow.pyfunc.load_model(model_uri=model_uri)
 
 app = FastAPI()

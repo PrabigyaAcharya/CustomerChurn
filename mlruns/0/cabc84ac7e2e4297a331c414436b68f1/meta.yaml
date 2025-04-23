@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/cabc84ac7e2e4297a331c414436b68f1/artifacts
+end_time: 1745380902334
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: cabc84ac7e2e4297a331c414436b68f1
+run_name: thundering-sheep-839
+run_uuid: cabc84ac7e2e4297a331c414436b68f1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745380752324
+status: 3
+tags: []
+user_id: aprab

@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1745379055395
+current_stage: Archived
+description: ''
+last_updated_timestamp: 1745380900858
+name: CustomerChurnClassifier
+run_id: 551bb5c834a549cf84eb285052547b41
+run_link: ''
+source: mlflow-artifacts:/0/551bb5c834a549cf84eb285052547b41/artifacts/model
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/0/551bb5c834a549cf84eb285052547b41/artifacts/model
+user_id: null
+version: 1
